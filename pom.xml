@@ -18,7 +18,7 @@
     <description>Spring Boot Backend Login System with Role-Based Access Control</description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>23</java.version>
         <jjwt.version>0.12.6</jjwt.version>
     </properties>
 
