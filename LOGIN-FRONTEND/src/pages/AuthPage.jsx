@@ -2,32 +2,27 @@ import React, { useState } from "react";
 import API from "../api/authService";
 
 const AuthPage = () => {
-  // State to toggle between Login and Register forms
   const [isLogin, setIsLogin] = useState(true);
-
-  // State for login form data
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
-
-  // State for registration form data
   const [registerData, setRegisterData] = useState({
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  // Handle login form submission
+
   const handleLoginSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
-    console.log("Login:", loginData); // Log login data (replace with API call later)
+    e.preventDefault();
+    console.log("Login:", loginData); 
   };
 
   // Handle registration form submission
   const handleRegisterSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
-    console.log("Register:", registerData); // Log register data (replace with API call later)
+    e.preventDefault(); 
+    console.log("Register:", registerData);
   };
 
   return (
