@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // Import the API service (presumably configured with axios) for making HTTP requests.
 import API from "../api/authService";
 
 const AuthPage = () => {
+  const navigate = useNavigate();
   // Toggle between Login and Register views
   const [isLogin, setIsLogin] = useState(true);
 
@@ -29,11 +31,21 @@ const AuthPage = () => {
 
       console.log("Login Success:", response.data); // Log response for debugging
 
-      // Show success message to the user
-      alert(response.data.message || "Login Successful");
+      const jwtResponse = response.data.data;
+      
+      // Save token and user info
+      localStorage.setItem("token", jwtResponse.token);
+      localStorage.setItem("role", jwtResponse.role);
+      localStorage.setItem("user", JSON.stringify(jwtResponse));
 
-      // Next Step: save token (e.g., in localStorage) after seeing backend response
-      // localStorage.setItem("token", response.data.data.token);
+      // Redirect based on role
+      if (jwtResponse.role === "ADMIN") {
+        navigate("/admin");
+      } else if (jwtResponse.role === "STAFF") {
+        navigate("/staff");
+      } else {
+        navigate("/customer");
+      }
     } catch (error) {
       console.log(error); // Log error for debugging
       // Show error message if available, otherwise generic message
