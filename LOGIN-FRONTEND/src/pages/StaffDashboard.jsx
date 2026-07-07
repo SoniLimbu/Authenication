@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getStaffProfile } from "../api/authService";
+import { getStaffProfile } from "../api/AuthService";
 
 const StaffDashboard = () => {
   const [profile, setProfile] = useState(null);

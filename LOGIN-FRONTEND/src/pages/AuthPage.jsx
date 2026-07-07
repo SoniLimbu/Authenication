@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // Import the API service (presumably configured with axios) for making HTTP requests.
-import API from "../api/authService";
+import API from "../api/AuthService";
 
 const AuthPage = () => {
   const navigate = useNavigate();

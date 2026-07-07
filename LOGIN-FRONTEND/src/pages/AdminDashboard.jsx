@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAdminStats, getUsers, toggleUserStatus, updateUserRole, deleteUser, createStaff } from "../api/authService";
+import { getAdminStats, getUsers, toggleUserStatus, updateUserRole, deleteUser, createStaff } from "../api/AuthService";
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
